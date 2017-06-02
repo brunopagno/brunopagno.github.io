@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+p {
+  line-height: 1.4em;
+}
+
+.header {
+  margin: 0;
+  height: 40px;
+  background-color: #333;
+}
+
+.after p, a {
+  margin-top: 45px;
+  color: #777;
+  text-decoration: none;
+}
+
+.wrapper {
+  margin: auto;
+  width: 960px;
+}
+
+.intro-paragraph {
+  width: 570px;
+  font-size: 1.4em;
+  line-height: 1.3em;
+}
