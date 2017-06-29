@@ -23,11 +23,25 @@ p {
 
 .wrapper {
   margin: auto;
-  width: 960px;
+  width: 1070px;
+}
+
+.left {
+  float: left;
+  width: 570px;
+}
+
+.right {
+  float: left;
+  margin-left: 24px;
+  width: 476px;
 }
 
 .intro-paragraph {
-  width: 570px;
   font-size: 1.4em;
   line-height: 1.3em;
+}
+
+.clear {
+  clear: both;
 }
