@@ -14,6 +14,16 @@ p {
   background: #444;
 }
 
+.wrapper {
+  margin: auto;
+  width: 960px;
+}
+
+.intro-paragraph {
+  font-size: 1.4em;
+  line-height: 1.3em;
+}
+
 .after p, a {
   margin-top: 45px;
   color: #0086b3;
@@ -21,25 +31,12 @@ p {
   text-decoration: none;
 }
 
-.wrapper {
-  margin: auto;
-  width: 1070px;
-}
-
-.left {
+.gamebox {
   float: left;
-  width: 570px;
-}
-
-.right {
-  float: left;
-  margin-left: 24px;
-  width: 476px;
-}
-
-.intro-paragraph {
-  font-size: 1.4em;
-  line-height: 1.3em;
+  width: 296px;
+  margin: 6px;
+  padding: 6px;
+  height: 220px;
 }
 
 .clear {
