@@ -1,48 +1,234 @@
 <!doctype html>
-
-<html lang="en">
-
-<head>
+<html amp lang="en">
+  <head>
     <meta charset="utf-8">
-    <title>Bruno Pagno</title>
-    <meta name="description" content="My own page">
-    <meta name="author" content="Bruno Pagno">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-
-    <div class="header"></div>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>A developer called Bruno Pagno</title>
+    <link rel="canonical" href="https://brunopagno.github.io/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <style amp-custom>
+      :root {
+        --theme-color: #0086b3;
+      }
+      body {
+        color: #7a7a7a;
+        background: #f5f5f5;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        min-width: 333px;
+      }
+      h2 {
+        text-align: center;
+      }
+      a {
+        font-weight: 600;
+        color: var(--theme-color);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .block {
+        margin: 0 auto;
+        max-width: 1200px;
+      }
+      .codeblock {
+        font-family: "Lucida Console", Monaco, monospace;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+        text-align: right;
+      }
+      .content {
+        padding: 12em 2em;
+        line-height: 1.5em;
+      }
+      .big-content {
+        padding: 8em 2em;
+        line-height: 1.5em;
+      }
+      .dark {
+        color: #6a6a6a;
+        background: #e7e7e7;
+      }
+      .divider {
+        color: #f5f5f5;
+        background: #6a6a6a;
+      }
+      .underlined {
+        display: inline;
+        border-bottom: 4px solid var(--theme-color);
+      }
+      .highlight {
+        margin: 2em auto;
+        max-width: 800px;
+      }
+      .small {
+        color: #b0b0b0;
+        font-size: 0.7em;
+      }
+    </style>
+  </head>
+  <body>
     <div class="wrapper">
-        <h1>Hello there!</h1>
-        <p class="intro-paragraph">
-            My name is Bruno Pagno and I'm a developer.
-            <br/>
-            <br/> I've been writing code for a while now and I have packed up a bit of experience. I've worked with a lot of
-            <strong>web development</strong>, a bunch of
-            <strong>game development</strong>, and a bit of
-            <strong>mobile development</strong>. I'm passionate about coding and learning new technologies.
-            <br/>
-            <br/> Currently I'm working at
-            <a href="http://www.dell.com/" target="_blank">Dell</a> in Eldorado do Sul where I write code for Dell Financial Services.
-            <br/>
-            <br/> If by any chance you want to talk to me you can find me on
-            <a href="http://twitter.com/brunopagno">Twitter</a> or
-            <a href="https://www.linkedin.com/in/bruno-pagno-7558b71b/">Linkedin</a>!
-        </p>
-        <div class="after">
-            <p class="left">
-                <a href="http://github.com/brunopagno" target="_blank">Github</a>
-                |
-                <a href="http://brunopagno.tumblr.com" target="_blank">Blog</a>
-                |
-                <a href="https://docs.google.com/document/d/1lCEScfOsGo5b_sKA1z4PgwPH85Pf3mOgMMxs8O3dlBI/edit?usp=sharing" target="_blank">Resume</a>
-            </p>
-            <p class="right">
-                <a href="projects.html">Personal Projects</a>
-            </p>
+      <div class="block">
+        <div class="content">
+          <div class="codeblock right">
+            <a target="_blank" href="https://github.com/brunopagno">GitHub</a><br>
+            <a target="_blank" href="https://www.linkedin.com/in/bruno-pagno-7558b71b/">LinkedIn</a><br>
+            <a target="_blank" href="https://docs.google.com/document/d/1lCEScfOsGo5b_sKA1z4PgwPH85Pf3mOgMMxs8O3dlBI/">Resume</a><br>
+            <a target="_blank" href="http://brunopagno.tumblr.com/">Blog</a><br><br>
+            console.log("hello world!");
+         </div>
+          <h2 class="underlined">Hello! o/</h2>
+          <p>
+            I'm Bruno Pagno, <br>
+            and I am a software developer
+          </p>
         </div>
-    </div>
-</body>
+      </div>
+      
+      <div class="dark">
+        <div class="block">
+          <div class="content">
+            <p>
+              I've been writing software for 12 or so years, and I have packed up a bit of experience. I've worked mostly as a <strong>backend</strong> developer, but I also have seen my share of <strong>frontend</strong> and <strong>game</strong> development. I'm passionate about coding and learning new technologies.
+            </p>
+            
+            <p>
+              Currently I'm working at <a href="https://www.dell.com" target="_blank">Dell</a> in Eldorado do Sul (Brazil) where I am an <strong>IT Advisor</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="divider">
+        <div class="block">
+          <div class="content">
+            <p>And, of course, during my career I have built a few things that I can say I'm proud of.</p>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="dark">
+        <div class="block">
+          <div class="big-content">
+            <h2>Woop Sicredi</h2>
+            <div class="highlight">
+              <amp-youtube data-videoid="UiH98w2f2PU" layout="responsive" width="480" height="270"></amp-youtube>
+              <div class="small">* this video is in portuguese only</div>
+            </div>
+            <p>
+              In my short period working for Sicredi I got the chance to actually be a part of it's digital transformation working in the <a href="https://woopsicredi.com/" target="_blank">Woop</a> project. The idea was to create a completelly new digital bank and try to attract more younger clients.
+            </p>
+            <p>
+              I worked on the development of webservices in <strong>Java</strong> that deal with credit card operations and their data. My daily activities included developing software with <strong>Spring Boot</strong> and <strong>Netty</strong> frameworks, and Oracle database. The application I was responsible for was a data aggregation service that received and compiled all credit card information from the platform, and was responsible for publishing notifications to users.
+            </p>
+            <p>
+              At this time I also became more interested in Data Science since I was working with a relatively large (and interesting) amount of data. This interest caused me to take a <a href="https://confirm.udacity.com/DTJVDDTK" target="_blank">Data Science nanodegree at Udacity</a> which I concluded soon after leaving the company.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="big-content">
+          <h2>Master's Degree in Data Visualization</h2>
+          <div class="highlight">
+            <amp-img src="img/masters.jpg" layout="responsive" width="10" height="3"></amp-img>
+          </div>
+          <p>
+            As a researcher I developed a project to monitor user's activities using several different sensor's data. The main idea was to aggregate different data sources that could provide any information related to a user and aggregate them in a single visualization. This ended up being an extensive data wrangling work to build a prototype visualization that we named "EverydayVis".
+          </p>
+          <p>
+            During this period I published 4 papers which can be accessed through my <a href="https://www.researchgate.net/profile/Bruno_Pagno">ResearchGate</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="dark">
+        <div class="block">
+          <div class="big-content">
+            <h2>Looney Tunes World of Mayhem</h2>
+            <div class="highlight">
+              <amp-youtube data-videoid="pe41WmIkUV8" layout="responsive" width="480" height="270"></amp-youtube>
+            </div>
+            <p>
+              I spent almost two years working on Looney Tunes World of Mayhem while integrating <strong>Aquiris's</strong> engineering staff.
+            </p>
+            <p>
+              Initially I worked developing a webtool for balancing the game. Basically it was an application that served as a operations tool allowing operators to add and remove content from the game in real time. We decided to develop this application with Grails framework. Eventually the interface's needs required us to use a dedicated frontend framework and we added a <strong>ReactJS</strong> layer for presentation.
+            </p>
+            <p>
+              After one year as a "tools developer" I actually got a chance to work directly with the mobile game that you see in the video above. It was then that I actually got to apply game development skills that I had only used in private projects previously.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="content">
+          <h2>NetShow.me</h2>
+          <p>
+            I had the chance to help building <a href="https://netshow.me/">NetShow.me</a> since the very beginning. The application is a platform for live bradcasting through the web. The idea of building a streaming application was a very interesting technical challenge by the time.
+          </p>
+        </div>
+      </div>
+
+      <div class="divider">
+        <div class="block">
+          <div class="content">
+            <p>And I've coded a few things on my own too.</p>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="big-content">
+          <h2>Game jams</h2>
+          <div class="highlight">
+            <amp-img src="img/darkwoods.jpg" layout="responsive" width="16" height="9"></amp-img>
+          </div>
+          <p>
+            Gaims and stuff :)
+            <ul>
+              <li>darkwoods</li>
+              <li>sleep under the rain</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+      <div class="divider">
+        <div class="block">
+          <div class="content">
+            <p>And finally some random things I'll just add in</p>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="dark">
+        <div class="block">
+          <div class="content">
+            I believe my main skills are:
+            <ul>
+              <li>Development languages: Javascript, C#, Ruby</li>
+              <li>Frameworks: NodeJs, ReactJS, .Net Core, Unity3D, Ruby on Rails</li>
+              <li>Also: Linux, agile methodologies, data engineering</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </body>
 </html>
