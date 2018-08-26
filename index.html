@@ -11,13 +11,14 @@
     <style amp-custom>
       :root {
         --theme-color: #0086b3;
+        --dark-theme-color: #005470;
       }
       body {
         color: #7a7a7a;
         background: #f5f5f5;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 20px;
-        min-width: 333px;
+        min-width: 400px;
       }
       h2 {
         text-align: center;
@@ -60,6 +61,9 @@
         color: #f5f5f5;
         background: #6a6a6a;
       }
+      .divider a {
+        color: var(--dark-theme-color);
+      }
       .underlined {
         display: inline;
         border-bottom: 4px solid var(--theme-color);
@@ -72,6 +76,14 @@
         color: #b0b0b0;
         font-size: 0.7em;
       }
+      .littleblock {
+        padding: 2em 2em 6em 2em;
+        clear: both;
+      }
+      .littlebox {
+        float: left;
+        margin-right: 2em;
+      }
     </style>
   </head>
   <body>
@@ -83,13 +95,14 @@
             <a target="_blank" href="https://www.linkedin.com/in/bruno-pagno-7558b71b/">LinkedIn</a><br>
             <a target="_blank" href="https://docs.google.com/document/d/1lCEScfOsGo5b_sKA1z4PgwPH85Pf3mOgMMxs8O3dlBI/">Resume</a><br>
             <a target="_blank" href="http://brunopagno.tumblr.com/">Blog</a><br><br>
-            console.log("hello world!");
          </div>
           <h2 class="underlined">Hello! o/</h2>
           <p>
             I'm Bruno Pagno, <br>
             and I am a software developer
           </p>
+          <br>
+          <p class="codeblock">console.log("hello world!");</p>
         </div>
       </div>
       
@@ -193,20 +206,38 @@
       <div class="block">
         <div class="big-content">
           <h2>Game jams</h2>
-          <div class="highlight">
-            <amp-img src="img/darkwoods.jpg" layout="responsive" width="16" height="9"></amp-img>
-          </div>
           <p>
-            Gaims and stuff :)
-            <ul>
-              <li>darkwoods</li>
-              <li>sleep under the rain</li>
-            </ul>
+            I must say that I like video games a lot and that they are an important part of my life. So much that I actually dedicated some of my free time to some game development projects. The two projects that I enjoyed the most are:
+            <div class="littleblock">
+              <amp-img class="littlebox" src="img/darkwoods.jpg" layout="fixed" width="256" height="256"></amp-img>
+              <p>
+                <strong>Dark Woods</strong> was my entry for <strong>Ludum Dare #39</strong>. This project was developed in 48h by <a href="https://annepagno.carbonmade.com/" target="_blank">an artist</a> and myself. We came up with the idea of the project and implemented everything from scratch using <strong>Unity3D</strong> as game engine.
+              </p>
+            </div>
+            
+            <div class="littleblock">
+              <amp-img class="littlebox" src="img/sutr.jpg" layout="fixed" width="256" height="256"></amp-img>
+              <p>
+                <strong>Sleep Under the Rain</strong> was another gamejam project for GDS that <a href="https://annepagno.carbonmade.com/" target="_blank">Anne</a> and I developed in 2016. We came up with the idea of trying to mix 2D platformer game mechanics with a bit of storytelling. We had two months to develop the project from scract. We used <strong>Unity3D</strong> as game engine.
+              </p>
+            </div>
           </p>
         </div>
       </div>
 
       <div class="divider">
+        <div class="block">
+          <div class="content">
+            <p>
+              Feel free to contact me :)<br>
+              <a target="_blank" href="https://github.com/brunopagno">GitHub</a><br>
+              <a target="_blank" href="https://www.linkedin.com/in/bruno-pagno-7558b71b/">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="divider">
         <div class="block">
           <div class="content">
             <p>And finally some random things I'll just add in</p>
@@ -227,8 +258,7 @@
             </ul>
           </div>
         </div>
-      </div>
-      
+      </div> -->
     </div>
   </body>
 </html>
