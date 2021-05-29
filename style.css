@@ -37,9 +37,6 @@ p {
 .links {
   margin-bottom: 24px;
 }
-.links a, span {
-  margin-right: 12px;
-}
 .projects {
   display: flex;
   flex-wrap: wrap;
