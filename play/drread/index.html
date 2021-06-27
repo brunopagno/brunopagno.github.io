@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Drread</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .content {
+      background-color: rgb(240, 240, 240);
+      padding: 12px 24px 72px 24px ;
+    }
+    span.red {
+      color: red;
+    }
+    .go_to_game {
+      margin: 12px 0 32px 0;
+    }
+    a.really_large {
+      font-size: 42px;
+      border: 2px solid rgb(15, 15, 15);
+      background-color: rgb(81, 81, 81);
+      color: rgb(192, 192, 192);
+      padding: 4px 8px;
+    }
+    a.really_large:hover {
+      background-color: rgb(131, 131, 131);
+      color: rgb(240, 212, 212)
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="content">
+      <h1>Drread!</h1>
+      <p>This project was created in (roughly) 48h for the <a href="https://itch.io/jam/mini-jam-83-dread" target="_blank">Mini Jam 83: <span class="red">Dread</span></a></p>
+
+      <h3>Game rules</h3>
+      <p>
+        You control a character named <strong>Dr.read</strong>
+      </p>
+      <img src="./images/drread.png" alt="Drread">
+
+      <p>
+        You can move around using the arrow buttons (<img src="./images/arrow.png" alt="arrow">) around the protagonist
+      </p>
+
+      <p>
+        The objective is to find the <strong>Mighty Grimoire</strong>
+      </p>
+      <img src="./images/book.png" alt="Mighty Grimoire">
+
+      <p>
+        But in the path you will find <strong>dreadful monsters</strong> that will try to stop you
+      </p>
+      <img src="./images/monster.png" alt="monster">
+
+      <p>Monsters will move one at a time in the direction of the hero</p>
+
+      <p>You <strong>lose the game</strong> if Dr.read's life total get's to 0</p>
+
+      <h4>Combat rules</h4>
+      <ul>
+        <li>When a character (hero or monster) tries to move to another character's tile, they will attack the character in that tile</li>
+        <li>The attack damage is done by rolling a dice</li>
+        <li>If the defending character dies, the attacking character takes it's place</li>
+        <li>Monsters will also battle other monsters if they are in the way</li>
+      </ul>
+
+      <h3>Play the game</h3>
+      <p class="go_to_game">
+        <a class="really_large" href="game.html">
+          Play the game!
+        </a>
+      </p>
+
+      <h3>About the authors</h3>
+      <p>
+        Created by <a target="_blank" href="https://www.linkedin.com/in/annepagno/">Anne Pagno</a> (art) and <a target="_blank" href="https://brunopagno.github.io">Bruno Pagno</a> (programming)
+      </p>
+    </div>
+  </main>
+</body>
+</html>

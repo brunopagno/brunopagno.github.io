@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.content {
+  width: 900px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(81, 81, 81);
+}
+a:hover {
+  text-decoration: none;
+  color: rgb(131, 131, 131);
+}
