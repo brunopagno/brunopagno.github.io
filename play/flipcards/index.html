@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flip Cards</title>
+
+    <style>
+        @font-face {
+            font-family: Virgil;
+            src: url("Virgil.woff2");
+            font-display: swap;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Virgil, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            height: 90vh;
+            align-items: center;
+        }
+        .footer {
+            margin: 0 1em;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8em;
+        }
+
+        #content {
+            font-size: 6em
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <span id="content">... click to start</span>
+    </div>
+    <div class="footer">
+        Font used: <a target="_blank" href="https://github.com/excalidraw/virgil">Virgil</a> (It's the official font of <a target="_blank" href="https://excalidraw.com/">Excalidraw</a>).
+    </div>
+
+    <!-- This created a "FlipCards" variable in global scope -->
+    <script src="flipcards.js"></script>
+    <script>
+        const contentTag = document.querySelector("#content");
+        
+        let i = 0;
+        function doTheThing(e) {
+            e.preventDefault();
+            
+            contentTag.innerText = FlipCards.next()
+        }
+
+        const wrapperTag = document.querySelector(".wrapper");
+        wrapperTag.onclick = doTheThing
+    </script>
+</body>
+</html>
