@@ -1,62 +1,145 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Bruno Pagno</title>
-    <link rel="canonical" href="https://brunopagno.github.io/">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="title-container">
-        <h2 class="title">Hello</h2>
-      </div>
-      <p>
-        I'm <strong>Bruno Pagno</strong>
-      </p>
 
-      <p>
-        I type keys on a keyboard professionally. I've been doing so for several years. I am more experienced coding for web, mostly backend.
-      </p>
-      <p>
-        I also like to make games on my free time.
-      </p>
-      <p>
-        And I love cats.
-      </p>
-      <p>
-        Living <strong>Berlin</strong>
-        <br />
-        Working <a href="https://www.shopify.com/" target="_blank">@shopify</a>
-      </p>
+<head>
+  <meta charset="utf-8">
+  <title>Bruno Pagno</title>
+  <link rel="canonical" href="https://brunopagno.github.io/">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style>
+    :root {
+      --theme-color: #0086b3;
+    }
 
-      <div class="links monospace">
-        <a target="_blank" href="https://twitter.com/brunopagno/"><img src="img/twitter.svg" alt="Twitter link" /></a>
-        <a target="_blank" href="https://github.com/brunopagno"><img src="img/github.svg" alt="Github link" /></a>
-        <a target="_blank" href="https://www.linkedin.com/in/brunopagno/"><img src="img/linkedin.svg" alt="LinkedIn link" /></a>
-      </div>
+    body {
+      color: #7a7a7a;
+      background: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      margin: 36px auto;
+      max-width: 1200px;
+    }
 
-      <div>
-        <div class="projects">
-          <a target="_blank" href="play/drread" class="project">
-            <h4>Drread</h4>
-            <img src="img/drread.jpg">
-          </a>
-          <a target="_blank" href="sleep.html" class="project">
-            <h4>Sleep Under The Rain</h4>
-            <img src="img/sutr.jpg">
-          </a>
-          <a target="_blank" href="darkwoods.html" class="project">
-            <h4>Dark Woods</h4>
-            <img src="img/darkwoods.jpg">
-          </a>
-          <a target="_blank" href="matmate.html" class="project">
-            <h4>Mat Mate</h4>
-            <img src="img/matmate.jpg">
-          </a>
-        </div>
+    a {
+      font-weight: 600;
+      color: var(--theme-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    p {
+      line-height: 28px;
+      margin-bottom: 28px;
+    }
+
+    .wrapper {
+      margin: 12px 36px;
+    }
+
+    .title-container {
+      margin-bottom: 40px;
+    }
+
+    .title {
+      display: inline;
+      border-bottom: 4px solid var(--theme-color);
+    }
+
+    .monospace {
+      font-family: "Lucida Console", Monaco, monospace;
+    }
+
+    .links {
+      margin-bottom: 24px;
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .project {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      color: var(--theme-color);
+      cursor: pointer;
+    }
+
+    .projects img {
+      border: 2px solid darkgray;
+    }
+    .projects img:hover {
+      border: 2px solid var(--theme-color);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="title-container">
+      <h2 class="title">Hello</h2>
+    </div>
+    <p>
+      I'm <strong>Bruno Pagno</strong>
+    </p>
+
+    <p>
+      I type keys on a keyboard professionally. I've been doing so for several years. I am more experienced coding for
+      web, mostly backend.
+    </p>
+    <p>
+      I also like to make games on my free time.
+    </p>
+    <p>
+      And I love cats.
+    </p>
+    <p>
+      Living <strong>Berlin</strong>
+      <br />
+      Working <a href="https://www.on-running.com/" target="_blank">@On</a>
+    </p>
+
+    <div class="links monospace">
+      <a target="_blank" href="https://twitter.com/brunopagno/"><img src="img/twitter.svg" alt="Twitter link" /></a>
+      <a target="_blank" href="https://github.com/brunopagno"><img src="img/github.svg" alt="Github link" /></a>
+      <a target="_blank" href="https://www.linkedin.com/in/brunopagno/"><img src="img/linkedin.svg"
+          alt="LinkedIn link" /></a>
+    </div>
+
+    <div>
+      <div class="projects">
+        <a target="_blank" href="https://www.memoryflip.com" class="project">
+          <h4>Memory Flip</h4>
+          <img src="img/memoryflip.png">
+        </a>
+        <a target="_blank" href="play/drread" class="project">
+          <h4>Drread</h4>
+          <img src="img/drread.jpg">
+        </a>
+        <a target="_blank" href="sleep.html" class="project">
+          <h4>Sleep Under The Rain</h4>
+          <img src="img/sutr.jpg">
+        </a>
+        <a target="_blank" href="darkwoods.html" class="project">
+          <h4>Dark Woods</h4>
+          <img src="img/darkwoods.jpg">
+        </a>
+        <a target="_blank" href="matmate.html" class="project">
+          <h4>Mat Mate</h4>
+          <img src="img/matmate.jpg">
+        </a>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
