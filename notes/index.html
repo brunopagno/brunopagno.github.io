@@ -11,7 +11,7 @@
       <hr />
       <ul id="done-list"></ul>
       <h3>Add a note</h3>
-      <form id="add-note" onsubmit="addNote">
+      <form id="add-note">
         <input
           type="text"
           id="note-text"
@@ -22,79 +22,75 @@
     </div>
 
     <script>
-      const notesList = document.getElementById("notes-list");
-      const doneList = document.getElementById("done-list");
-      const addNoteForm = document.getElementById("add-note");
-      const noteText = document.getElementById("note-text");
+      const notes = [];
+      const done = [];
 
-      function addNote(event) {
-        event.preventDefault();
-        const note = createNewNoteElement(noteText.value);
-        addToList(notesList, note);
-        noteText.value = "";
+      const formElement = document.getElementById("add-note");
+      const noteTextElement = document.getElementById("note-text");
+      formElement.onsubmit = (ev) => {
+        ev.preventDefault();
+        notes.push(noteTextElement.value);
+        noteTextElement.value = "";
+        updateNotes();
+        return false;
+      };
 
-        syncToLocalStorage();
+      const notesListElement = document.getElementById("notes-list");
+      function updateNotes() {
+        notesListElement.innerHTML = "";
+        notes.forEach((note, index) => {
+          const li = createListItem(note);
+          li.onclick = () => {
+            done.push(note);
+            notes.splice(index, 1);
+            updateNotes();
+            updateDone();
+          };
+          notesListElement.appendChild(li);
+        });
+        save();
       }
 
-      addNoteForm.addEventListener("submit", addNote);
-
-      syncFromLocalStorage();
-
-      // Helpers
-      function addToList(list, element) {
-        list.appendChild(element);
-        syncToLocalStorage();
+      const doneListElement = document.getElementById("done-list");
+      function updateDone() {
+        doneListElement.innerHTML = "";
+        done.forEach((note, index) => {
+          const li = createListItem(note);
+          li.onclick = () => {
+            done.splice(index, 1);
+            updateDone();
+          };
+          doneListElement.appendChild(li);
+        });
+        save();
       }
 
-      function removeFromList(list, element) {
-        list.removeChild(element);
-        syncToLocalStorage();
+      function createListItem(note) {
+        const li = document.createElement("li");
+        li.classList.add("note");
+        li.innerHTML = note;
+        return li;
       }
 
-      function createNewNoteElement(value) {
-        const markAsDone = document.createElement("button");
-        markAsDone.innerText = "Done!";
-        markAsDone.onclick = () => {
-          addToList(doneList, createDoneNoteElement(value));
-          removeFromList(notesList, note);
-        };
-
-        const note = createListElement(value);
-        note.appendChild(markAsDone);
-
-        return note;
+      function save() {
+        localStorage.setItem("notes", JSON.stringify(notes));
+        localStorage.setItem("done", JSON.stringify(done));
       }
 
-      function createDoneNoteElement(value) {
-        const removeNote = document.createElement("button");
-        removeNote.innerText = "X";
-        removeNote.onclick = () => {
-          removeFromList(doneList, note);
-        };
-
-        const note = createListElement(value);
-        note.appendChild(removeNote);
-
-        syncToLocalStorage();
-
-        return note;
+      function load() {
+        const notesJson = localStorage.getItem("notes");
+        if (notesJson) {
+          notes.push(...JSON.parse(notesJson));
+        }
+        const doneJson = localStorage.getItem("done");
+        if (doneJson) {
+          done.push(...JSON.parse(doneJson));
+        }
       }
 
-      function createListElement(value) {
-        const note = document.createElement("li");
-        note.innerText = value;
-        return note;
-      }
-
-      function syncToLocalStorage() {
-        localStorage.setItem("notes", notesList.innerHTML);
-        localStorage.setItem("done", doneList.innerHTML);
-      }
-
-      function syncFromLocalStorage() {
-        notesList.innerHTML = localStorage.getItem("notes");
-        doneList.innerHTML = localStorage.getItem("done");
-      }
+      load();
+      updateNotes();
+      updateDone();
     </script>
   </body>
 </html>
