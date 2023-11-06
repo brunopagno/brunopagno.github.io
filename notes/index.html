@@ -10,7 +10,7 @@
         color: #333;
       }
 
-      h2 {
+      h3 {
         border-bottom: 1px solid #ccc;
       }
 
@@ -33,6 +33,10 @@
         text-decoration: line-through;
       }
 
+      .center {
+        text-align: center;
+      }
+
       .list {
         list-style: none;
         padding: 0;
@@ -46,23 +50,26 @@
 
       .note button {
         border: none;
-        background-color: transparent;
+        background-color: #eef;
         color: #ccc;
         font-size: 1.2em;
-        padding: 0.2em;
+        padding: 0.2em 0.4em;
         margin-right: 0.5em;
       }
       .note button:hover {
         color: #333;
+        background-color: #dde;
       }
     </style>
   </head>
   <body>
     <div id="content">
-      <h2>Notes</h2>
+      <h3>Notes</h3>
       <ul id="notes-list" class="list"></ul>
-      <h2>Done</h2>
+      <p class="center">...</p>
+      <h3>Done</h3>
       <ul id="done-list" class="list"></ul>
+      <p class="center">...</p>
       <form id="add-note">
         <input type="text" id="note-text" placeholder="to do..." autofocus />
       </form>
@@ -113,13 +120,18 @@
       function createListItem(note, onClick) {
         const li = document.createElement("li");
         li.classList.add("note");
+        // li.onclick = () => {
+        //   navigator.clipboard.writeText(note);
+        // };
+
         const action = document.createElement("button");
-        action.innerText = "x";
-        li.appendChild(action);
-        li.appendChild(document.createTextNode(note));
+        action.innerText = "✓";
         if (onClick) {
           action.onclick = onClick;
         }
+
+        li.appendChild(action);
+        li.appendChild(document.createTextNode(note));
         return li;
       }
 
