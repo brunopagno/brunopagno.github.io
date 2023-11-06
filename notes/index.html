@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notes</title>
+  </head>
+  <body>
+    <div id="content">
+      <h2>Notes</h2>
+      <ul id="notes-list"></ul>
+      <hr />
+      <ul id="done-list"></ul>
+      <h3>Add a note</h3>
+      <form id="add-note" onsubmit="addNote">
+        <input
+          type="text"
+          id="note-text"
+          placeholder="Write something here"
+          autofocus
+        />
+      </form>
+    </div>
+
+    <script>
+      const notesList = document.getElementById("notes-list");
+      const doneList = document.getElementById("done-list");
+      const addNoteForm = document.getElementById("add-note");
+      const noteText = document.getElementById("note-text");
+
+      function addNote(event) {
+        event.preventDefault();
+        const note = createNewNoteElement(noteText.value);
+        addToList(notesList, note);
+        noteText.value = "";
+
+        syncToLocalStorage();
+      }
+
+      addNoteForm.addEventListener("submit", addNote);
+
+      syncFromLocalStorage();
+
+      // Helpers
+      function addToList(list, element) {
+        list.appendChild(element);
+        syncToLocalStorage();
+      }
+
+      function removeFromList(list, element) {
+        list.removeChild(element);
+        syncToLocalStorage();
+      }
+
+      function createNewNoteElement(value) {
+        const markAsDone = document.createElement("button");
+        markAsDone.innerText = "Done!";
+        markAsDone.onclick = () => {
+          addToList(doneList, createDoneNoteElement(value));
+          removeFromList(notesList, note);
+        };
+
+        const note = createListElement(value);
+        note.appendChild(markAsDone);
+
+        return note;
+      }
+
+      function createDoneNoteElement(value) {
+        const removeNote = document.createElement("button");
+        removeNote.innerText = "X";
+        removeNote.onclick = () => {
+          removeFromList(doneList, note);
+        };
+
+        const note = createListElement(value);
+        note.appendChild(removeNote);
+
+        syncToLocalStorage();
+
+        return note;
+      }
+
+      function createListElement(value) {
+        const note = document.createElement("li");
+        note.innerText = value;
+        return note;
+      }
+
+      function syncToLocalStorage() {
+        localStorage.setItem("notes", notesList.innerHTML);
+        localStorage.setItem("done", doneList.innerHTML);
+      }
+
+      function syncFromLocalStorage() {
+        notesList.innerHTML = localStorage.getItem("notes");
+        doneList.innerHTML = localStorage.getItem("done");
+      }
+    </script>
+  </body>
+</html>
