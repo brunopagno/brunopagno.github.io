@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        color: #333;
+      }
+
+      h3 {
+        border-bottom: 1px solid #ccc;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.5em;
+        font-size: 1.2em;
+        border: none;
+      }
+      input:focus {
+        outline: none;
+        border-bottom: 2px solid #333;
+      }
+
+      #content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      #done-list {
+        text-decoration: line-through;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .list {
+        list-style: none;
+        padding: 0;
+      }
+      .todo {
+        padding: 0.5em;
+      }
+      .todo:hover {
+        background-color: #eee;
+      }
+
+      .todo button {
+        border: none;
+        background-color: #eef;
+        color: #ccc;
+        font-size: 1.2em;
+        padding: 0.2em 0.4em;
+        margin-right: 0.5em;
+      }
+      .todo button:hover {
+        color: #333;
+        background-color: #dde;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <h3>Todos</h3>
+      <ul id="todo-list" class="list"></ul>
+      <p class="center">...</p>
+      <h3>Done</h3>
+      <ul id="done-list" class="list"></ul>
+      <p class="center">...</p>
+      <form id="add-todo">
+        <input type="text" id="todo-text" placeholder="to do..." autofocus />
+      </form>
+    </div>
+
+    <script src="todos.js"></script>
+    <script>
+      const formElement = document.getElementById("add-todo");
+      const todoInput = document.getElementById("todo-text");
+      formElement.onsubmit = submitForm;
+
+      S.load();
+      drawItAll();
+
+      function drawList(list, elementId, onCheck) {
+        targetElement = document.getElementById(elementId);
+        targetElement.innerHTML = "";
+        list.forEach((item, index) => {
+          const li = createListItem(item, onCheck);
+          targetElement.appendChild(li);
+        });
+        S.save();
+      }
+
+      function drawItAll() {
+        drawList(S.todo, "todo-list", clickTodo);
+        drawList(S.done, "done-list", clickDone);
+      }
+
+      function createListItem(item, onCheck) {
+        const li = document.createElement("li");
+        li.classList.add("todo");
+        li.setAttribute("data-order", item.order);
+
+        const action = document.createElement("button");
+        action.innerText = "✓";
+        if (onCheck) {
+          action.onclick = onCheck;
+        } else {
+          action.setAttribute("disabled", true);
+        }
+
+        li.appendChild(action);
+        li.appendChild(document.createTextNode(item.text));
+        return li;
+      }
+
+      function clickTodo(ev) {
+        const itemElement = ev.target.parentElement;
+        const order = itemElement.getAttribute("data-order");
+        S.markAsDone(order);
+        S.save();
+        drawItAll();
+      }
+
+      function clickDone(ev) {
+        const itemElement = ev.target.parentElement;
+        const order = itemElement.getAttribute("data-order");
+        S.removeDoneItem(order);
+        S.save();
+        drawItAll();
+      }
+
+      function submitForm(ev) {
+        ev.preventDefault();
+        const value = todoInput.value;
+        S.add(value);
+        todoInput.value = "";
+        drawItAll();
+      }
+    </script>
+  </body>
+</html>
