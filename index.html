@@ -14,12 +14,12 @@
       }
 
       body {
-        color: #7a7a7a;
-        background: #f5f5f5;
-        font-family: Arial, Helvetica, sans-serif;
+        color: #333;
+        background: #fff;
+        font-family: "Lucida Console", Monaco, monospace;
         font-size: 20px;
-        margin: 36px auto;
-        max-width: 1200px;
+        margin: 48px auto;
+        max-width: 860px;
       }
 
       a {
@@ -37,64 +37,44 @@
         margin-bottom: 28px;
       }
 
-      .wrapper {
-        margin: 12px 36px;
-      }
-
-      .title-container {
-        margin-bottom: 40px;
-      }
-
-      .title {
-        display: inline;
+      h2 {
+        display: inline-block;
         border-bottom: 4px solid var(--theme-color);
+        margin: 8px 0 32px 0;
       }
 
-      .monospace {
-        font-family: "Lucida Console", Monaco, monospace;
+      h3 {
+        display: inline-block;
+        border-bottom: 2px solid var(--theme-color);
       }
 
-      .links {
-        margin-bottom: 24px;
-      }
-
-      .horizontal {
+      .horizontal-flex {
         display: flex;
         flex-direction: row;
+        gap: 8px;
       }
 
-      .projects {
+      .things {
         display: flex;
-        flex-wrap: wrap;
-      }
-
-      .project {
-        display: flex;
-        flex: 1;
         flex-direction: column;
-        align-items: center;
-        color: var(--theme-color);
-        cursor: pointer;
+        flex-wrap: wrap;
+        font-size: 0.8em;
+        margin-top: 6em;
       }
 
-      .projects img {
-        border: 2px solid darkgray;
-      }
-      .projects img:hover {
-        border: 2px solid var(--theme-color);
+      .strikethrough {
+        text-decoration: line-through;
       }
 
-      .text-center {
+      .center {
         text-align: center;
       }
     </style>
   </head>
 
   <body>
-    <div class="wrapper">
-      <div class="title-container">
-        <h2 class="title">Hello</h2>
-      </div>
+    <div>
+      <h2>Hello</h2>
       <p>I'm <strong>Bruno Pagno</strong></p>
       <p>
         I have been working with software development for quite a while. I know
@@ -108,40 +88,119 @@
         ... and I absolutely love cats.
       </p>
       <p>
-        Living in <strong>Berlin</strong>
-        <br />
+        Based in <strong>Germany</strong>, <br />
         Working
-        <a href="https://www.on-running.com/" target="_blank">@on-running</a>
+        <a href="https://www.on-running.com/" target="_blank">@on</a>
       </p>
 
-      <div class="links monospace horizontal">
-        <a target="_blank" href="https://github.com/brunopagno">
-          <img src="img/github.svg" alt="Github link" />
-        </a>
+      <hr />
+
+      <div class="horizontal-flex">
+        <a target="_blank" href="https://github.com/brunopagno">github</a>
         |
-        <a target="_blank" href="https://www.linkedin.com/in/brunopagno/">
-          <img src="img/linkedin.svg" alt="LinkedIn link" />
-        </a>
+        <a target="_blank" href="https://www.linkedin.com/in/brunopagno/"
+          >linked in</a
+        >
+        |
+        <span class="strikethrough">twitter</span>
       </div>
 
+      <hr />
+
       <div>
-        <div class="projects">
-          <a target="_blank" href="play/drread" class="project">
-            <h4>Drread</h4>
-            <img src="img/drread.jpg" />
-          </a>
-          <a target="_blank" href="sleep.html" class="project">
-            <h4>Sleep Under The Rain</h4>
-            <img src="img/sutr.jpg" />
-          </a>
-          <a target="_blank" href="darkwoods.html" class="project">
-            <h4>Dark Woods</h4>
-            <img src="img/darkwoods.jpg" />
-          </a>
-          <a target="_blank" href="matmate.html" class="project">
-            <h4>Mat Mate</h4>
-            <img src="img/matmate.jpg" />
-          </a>
+        <div class="things">
+          <div>
+            <h3>Drread</h3>
+            <p>
+              Short game prototype made in a weekend using only bare web
+              technologies for
+              <a href="https://itch.io/jam/mini-jam-83-dread" target="_blank">
+                Mini Jam 83
+              </a>
+            </p>
+            <p>
+              <a target="_blank" href="play/drread">Check it out</a>
+            </p>
+            <p>
+              We attempted to bring a board game design while exploring the
+              challenge of using only what the browser offer, no frameworks or
+              libraries to help.
+            </p>
+          </div>
+          <p class="center">...</p>
+
+          <div>
+            <h3>Sleep under the rain</h3>
+            <p>
+              This game was made in a month long game jam. It tells the story of
+              Salazar, a plushie forgotten by it's owner in an old mansion.
+            </p>
+            <div class="center">
+              <iframe
+                frameborder="0"
+                height="315"
+                src="https://www.youtube.com/embed/Tp1iVlN52Hw"
+                width="560"
+                style="width: 640px; height: 420px"
+              >
+              </iframe>
+            </div>
+            <p>
+              The game is a 2D platformer where your objective is to search for
+              Salazar's memories, spread across the mansion.
+            </p>
+          </div>
+          <p class="center">...</p>
+
+          <div>
+            <h3>Dark woods</h3>
+            <p>
+              Dark woods was an entry for
+              <a
+                href="https://ldjam.com/events/ludum-dare/39/darkwoods"
+                target="_blank"
+              >
+                Ludum Dare #39
+              </a>
+              . It was developed on Unity3D.
+            </p>
+            <div class="center">
+              <iframe
+                frameborder="0"
+                height="315"
+                src="https://www.youtube.com/embed/iSOz8Y_fw88"
+                width="560"
+                style="width: 640px; height: 420px"
+              >
+              </iframe>
+            </div>
+            <p>
+              This prototype featured a top down few and a scary atmosphere
+              where the player tried to get to the destination before the
+              batteries on their lantern ran out.
+            </p>
+          </div>
+          <p class="center">...</p>
+
+          <div>
+            <h3>Mat mate</h3>
+            <p>
+              Mat Mate is a 2D game where you control Dinosir and tries to
+              collect as many flags as possible before being hit by an obstacle.
+            </p>
+            <div class="center">
+              <iframe
+                frameborder="0"
+                height="315"
+                src="https://www.youtube.com/embed/B1V8TIq4-j0"
+                width="560"
+                style="width: 640px; height: 420px"
+              >
+              </iframe>
+            </div>
+            <p>This is a two day prototype made for fun</p>
+          </div>
+          <p class="center">...</p>
         </div>
       </div>
     </div>
