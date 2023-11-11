@@ -33,14 +33,14 @@
       }
 
       p {
-        line-height: 28px;
-        margin-bottom: 28px;
+        line-height: 1.4em;
+        margin-bottom: 1.2em;
       }
 
       h2 {
         display: inline-block;
         border-bottom: 4px solid var(--theme-color);
-        margin: 8px 0 32px 0;
+        margin: 0.2em 0 1em 0;
       }
 
       h3 {
@@ -51,7 +51,7 @@
       .horizontal-flex {
         display: flex;
         flex-direction: row;
-        gap: 8px;
+        gap: 0.5em;
       }
 
       .things {
@@ -60,6 +60,12 @@
         flex-wrap: wrap;
         font-size: 0.8em;
         margin-top: 6em;
+      }
+      .thing::after {
+        content: "...";
+        display: block;
+        text-align: center;
+        margin-bottom: 4em;
       }
 
       .strikethrough {
@@ -109,7 +115,15 @@
 
       <div>
         <div class="things">
-          <div>
+          <div class="thing">
+            <h3>Todo notes</h3>
+            <p>
+              A <a href="todos/">todo list</a> in vanillajs, using localstorage
+              to persist the data.
+            </p>
+          </div>
+
+          <div class="thing">
             <h3>Drread</h3>
             <p>
               Short game prototype made in a weekend using only bare web
@@ -127,9 +141,8 @@
               libraries to help.
             </p>
           </div>
-          <p class="center">...</p>
 
-          <div>
+          <div class="thing">
             <h3>Sleep under the rain</h3>
             <p>
               This game was made in a month long game jam. It tells the story of
@@ -150,9 +163,8 @@
               Salazar's memories, spread across the mansion.
             </p>
           </div>
-          <p class="center">...</p>
 
-          <div>
+          <div class="thing">
             <h3>Dark woods</h3>
             <p>
               Dark woods was an entry for
@@ -180,9 +192,8 @@
               batteries on their lantern ran out.
             </p>
           </div>
-          <p class="center">...</p>
 
-          <div>
+          <div class="thing">
             <h3>Mat mate</h3>
             <p>
               Mat Mate is a 2D game where you control Dinosir and tries to
@@ -200,7 +211,6 @@
             </div>
             <p>This is a two day prototype made for fun</p>
           </div>
-          <p class="center">...</p>
         </div>
       </div>
     </div>
