@@ -5,13 +5,29 @@
     <title>Todo</title>
 
     <style>
+      :root {
+        --theme-accent: #0086b3;
+        --theme-color: #333;
+        --theme-background: #fff;
+        --theme-background-light: #eee;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --theme-accent: #00b3b3;
+          --theme-color: #fff;
+          --theme-background: #333;
+          --theme-background-light: #444;
+        }
+      }
+
       body {
         font-family: sans-serif;
-        color: #333;
+        color: var(--theme-color);
+        background: var(--theme-background);
       }
 
       h3 {
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid var(--theme-color);
       }
 
       input {
@@ -22,7 +38,7 @@
       }
       input:focus {
         outline: none;
-        border-bottom: 2px solid #333;
+        border-bottom: 2px solid var(--theme-color);
       }
 
       #content {
@@ -45,20 +61,20 @@
         padding: 0.5em;
       }
       .todo:hover {
-        background-color: #eee;
+        background-color: var(--theme-background-light);
       }
 
       .todo button {
         border: none;
-        background-color: #eef;
-        color: #ccc;
+        background-color: var(--theme-background-light);
+        color: var(--theme-color);
         font-size: 1.2em;
         padding: 0.2em 0.4em;
         margin-right: 0.5em;
       }
       .todo button:hover {
         color: #333;
-        background-color: #dde;
+        background-color: var(--theme-accent);
       }
     </style>
   </head>

@@ -10,12 +10,21 @@
     />
     <style>
       :root {
-        --theme-color: #0086b3;
+        --theme-accent: #0086b3;
+        --theme-color: #333;
+        --theme-background: #fff;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --theme-accent: #00b3b3;
+          --theme-color: #fff;
+          --theme-background: #333;
+        }
       }
 
       body {
-        color: #333;
-        background: #fff;
+        color: var(--theme-color);
+        background: var(--theme-background);
         font-family: "Lucida Console", Monaco, monospace;
         font-size: 20px;
         margin: 2em auto;
@@ -25,7 +34,7 @@
 
       a {
         font-weight: 600;
-        color: var(--theme-color);
+        color: var(--theme-accent);
         text-decoration: none;
       }
 
@@ -40,13 +49,13 @@
 
       h2 {
         display: inline-block;
-        border-bottom: 4px solid var(--theme-color);
+        border-bottom: 4px solid var(--theme-accent);
         margin: 0.2em 0 1em 0;
       }
 
       h3 {
         display: inline-block;
-        border-bottom: 2px solid var(--theme-color);
+        border-bottom: 2px solid var(--theme-accent);
       }
 
       .horizontal-flex {
