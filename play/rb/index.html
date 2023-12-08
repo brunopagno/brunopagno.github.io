@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Visuals</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- partial component -->
+    <style>
+      .card {
+        position: relative;
+        background-color: darkgray;
+        color: white;
+        width: 22em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .card .base {
+        display: flex;
+        flex-direction: column;
+      }
+      .card .image {
+        width: 20em;
+        height: 15.3em;
+        background-size: cover;
+      }
+      .card .description {
+        width: 18em;
+        height: 8em;
+        background-color: #666666;
+        padding: 1em;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+      }
+      .overlay .build {
+        background-color: #444444;
+        border-radius: 0.5em;
+        padding: 0.2em 0.5em;
+      }
+      .overlay .deploy {
+        background-color: darkorange;
+        border-radius: 0.5em;
+        padding: 0.2em 0.5em;
+      }
+      .overlay .attack {
+        background-color: red;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+      }
+      .overlay .hull {
+        background-color: #444444;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+      }
+    </style>
+
+    <div class="card">
+      <div class="base">
+        <div class="title">Stealth Tony</div>
+        <div class="image">tony.png</div>
+        <div class="description">
+          <div class="normal">
+            Strike core Stealth Tony cannot be targeted by commands or upgrades
+          </div>
+          <div class="flavour"></div>
+        </div>
+        <div class="traits">contruct : bot : TECH</div>
+        <div class="artist">Anne Pagno</div>
+      </div>
+      <div class="overlay">
+        <div class="build">Build: 1 scrap</div>
+        <div class="deploy">Deploy: 1 energy</div>
+        <div class="attack">1</div>
+        <div class="hull">1</div>
+      </div>
+    </div>
+    <script>
+      const image = document.querySelector(".image");
+      const imageSrc = image.innerHTML;
+      image.innerHTML = "";
+      image.style.backgroundImage = `url(${imageSrc})`;
+
+      const normal = document.querySelector(".normal");
+      normal.innerHTML = normal.innerHTML.replace(/\n/g, "<br />");
+    </script>
+    <!-- end of partial component -->
+  </body>
+</html>
