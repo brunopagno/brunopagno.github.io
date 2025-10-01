@@ -1,0 +1,418 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <h1>Ecos</h1>
+
+  <div class="container">
+    <div class="inputs">
+      <h2>Configuration</h2>
+      <div class="form-group">
+        <label for="charName">Character Name</label>
+        <input type="text" id="charName" placeholder="Enter character name" />
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input type="text" id="imageUrl" placeholder="Enter image URL" />
+      </div>
+      <div class="form-group">
+        <label>VIG</label>
+        <div class="dice-buttons" data-attr="VIG">
+          <button type="button" class="dice-btn" data-value="4"><span class="dice-icon d4"></span> d4</button>
+          <button type="button" class="dice-btn" data-value="6"><span class="dice-icon d6"></span> d6</button>
+          <button type="button" class="dice-btn active" data-value="8"><span class="dice-icon d8"></span> d8</button>
+          <button type="button" class="dice-btn" data-value="10"><span class="dice-icon d10"></span> d10</button>
+          <button type="button" class="dice-btn" data-value="12"><span class="dice-icon d12"></span> d12</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>DES</label>
+        <div class="dice-buttons" data-attr="DES">
+          <button type="button" class="dice-btn" data-value="4"><span class="dice-icon d4"></span> d4</button>
+          <button type="button" class="dice-btn" data-value="6"><span class="dice-icon d6"></span> d6</button>
+          <button type="button" class="dice-btn active" data-value="8"><span class="dice-icon d8"></span> d8</button>
+          <button type="button" class="dice-btn" data-value="10"><span class="dice-icon d10"></span> d10</button>
+          <button type="button" class="dice-btn" data-value="12"><span class="dice-icon d12"></span> d12</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>INT</label>
+        <div class="dice-buttons" data-attr="INT">
+          <button type="button" class="dice-btn" data-value="4"><span class="dice-icon d4"></span> d4</button>
+          <button type="button" class="dice-btn" data-value="6"><span class="dice-icon d6"></span> d6</button>
+          <button type="button" class="dice-btn active" data-value="8"><span class="dice-icon d8"></span> d8</button>
+          <button type="button" class="dice-btn" data-value="10"><span class="dice-icon d10"></span> d10</button>
+          <button type="button" class="dice-btn" data-value="12"><span class="dice-icon d12"></span> d12</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>SOC</label>
+        <div class="dice-buttons" data-attr="SOC">
+          <button type="button" class="dice-btn" data-value="4"><span class="dice-icon d4"></span> d4</button>
+          <button type="button" class="dice-btn" data-value="6"><span class="dice-icon d6"></span> d6</button>
+          <button type="button" class="dice-btn active" data-value="8"><span class="dice-icon d8"></span> d8</button>
+          <button type="button" class="dice-btn" data-value="10"><span class="dice-icon d10"></span> d10</button>
+          <button type="button" class="dice-btn" data-value="12"><span class="dice-icon d12"></span> d12</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>INS</label>
+        <div class="dice-buttons" data-attr="INS">
+          <button type="button" class="dice-btn" data-value="4"><span class="dice-icon d4"></span> d4</button>
+          <button type="button" class="dice-btn" data-value="6"><span class="dice-icon d6"></span> d6</button>
+          <button type="button" class="dice-btn active" data-value="8"><span class="dice-icon d8"></span> d8</button>
+          <button type="button" class="dice-btn" data-value="10"><span class="dice-icon d10"></span> d10</button>
+          <button type="button" class="dice-btn" data-value="12"><span class="dice-icon d12"></span> d12</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="traits">Characteristics</label>
+        <textarea id="traits" rows="8" placeholder="Enter characteristics (one per line or multiline)..."></textarea>
+      </div>
+    </div>
+
+    <div class="preview">
+      <h2>Character Sheet</h2>
+      <div class="character-card">
+        <h3 id="sheetName">Character Name</h3>
+
+        <div class="card-body">
+          <div class="image-frame">
+            <img id="sheetImage" src="" alt="" style="display: none;" />
+            <div id="imagePlaceholder">[Image]</div>
+          </div>
+
+          <div class="attributes">
+            <div>VIG: <span><span id="sheetVIGIcon" class="dice-icon d8"></span><span id="sheetVIG">d8</span></span></div>
+            <div>DES: <span><span id="sheetDESIcon" class="dice-icon d8"></span><span id="sheetDES">d8</span></span></div>
+            <div>INT: <span><span id="sheetINTIcon" class="dice-icon d8"></span><span id="sheetINT">d8</span></span></div>
+            <div>SOC: <span><span id="sheetSOCIcon" class="dice-icon d8"></span><span id="sheetSOC">d8</span></span></div>
+            <div>INS: <span><span id="sheetINSIcon" class="dice-icon d8"></span><span id="sheetINS">d8</span></span></div>
+          </div>
+        </div>
+
+        <div id="sheetTraits" class="traits"></div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* override max width */
+  body {
+    max-width: 1024px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .dice-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .dice-btn {
+    padding: 0.5rem 0.75rem;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .dice-btn:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+  }
+
+  .dice-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+  }
+
+  /* Dice icon shapes */
+  .dice-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  /* d4 - Triangle (tetrahedron) */
+  .dice-icon.d4 {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid currentColor;
+    margin-bottom: -2px;
+  }
+
+  /* d6 - Square (cube) */
+  .dice-icon.d6 {
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    border-radius: 2px;
+  }
+
+  /* d8 - Diamond (octahedron) */
+  .dice-icon.d8 {
+    width: 12px;
+    height: 12px;
+    background-color: currentColor;
+    transform: rotate(45deg);
+    margin: 2px 4px;
+  }
+
+  /* d10 - Pentagon */
+  .dice-icon.d10 {
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+
+  /* d12 - Dodecagon (12-sided) */
+  .dice-icon.d12 {
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+
+  .dice-btn.active .dice-icon.d4 {
+    border-bottom-color: white;
+  }
+
+  .dice-btn.active .dice-icon.d6,
+  .dice-btn.active .dice-icon.d8,
+  .dice-btn.active .dice-icon.d10,
+  .dice-btn.active .dice-icon.d12 {
+    background-color: white;
+  }
+
+  .character-card {
+    width: 450px;
+    min-height: 680px;
+    background: #e8dcc4;
+    border: 12px solid #8b7355;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .character-card h3 {
+    margin: 7px 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #8b7355;
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #3d2817;
+    letter-spacing: 1px;
+  }
+
+  .card-body {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .image-frame {
+    flex: 3;
+    background: #c4b5a0;
+    border-radius: 4px;
+    padding: 4px;
+    height: 250px;
+    position: relative;
+  }
+
+  .image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 2px solid #5d4e37;
+    background: #5d5d5d;
+  }
+
+  #imagePlaceholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #8b8b8b;
+    font-style: italic;
+  }
+
+  .attributes {
+    flex: 1;
+    background: #d4c5a9;
+    border: 1.5px solid #8b7355;
+    border-radius: 3px;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    color: #3d2817;
+  }
+
+  .attributes div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .attributes span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    color: #5d4e37;
+  }
+
+  .traits {
+    background: #f5f0e3;
+    border: 2px solid #8b7355;
+    border-radius: 4px;
+    padding: 16px;
+    flex: 1;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #4a3f35;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+</style>
+
+<script>
+  const charNameInput = document.getElementById('charName') as HTMLInputElement;
+  const imageUrlInput = document.getElementById('imageUrl') as HTMLInputElement;
+  const traitsInput = document.getElementById('traits') as HTMLTextAreaElement;
+
+  const sheetName = document.getElementById('sheetName') as HTMLElement;
+  const sheetImage = document.getElementById('sheetImage') as HTMLImageElement;
+  const imagePlaceholder = document.getElementById('imagePlaceholder') as HTMLElement;
+  const sheetVIG = document.getElementById('sheetVIG') as HTMLElement;
+  const sheetDES = document.getElementById('sheetDES') as HTMLElement;
+  const sheetINT = document.getElementById('sheetINT') as HTMLElement;
+  const sheetSOC = document.getElementById('sheetSOC') as HTMLElement;
+  const sheetINS = document.getElementById('sheetINS') as HTMLElement;
+  const sheetVIGIcon = document.getElementById('sheetVIGIcon') as HTMLElement;
+  const sheetDESIcon = document.getElementById('sheetDESIcon') as HTMLElement;
+  const sheetINTIcon = document.getElementById('sheetINTIcon') as HTMLElement;
+  const sheetSOCIcon = document.getElementById('sheetSOCIcon') as HTMLElement;
+  const sheetINSIcon = document.getElementById('sheetINSIcon') as HTMLElement;
+  const sheetTraits = document.getElementById('sheetTraits') as HTMLElement;
+
+  // Map of attribute names to HTML elements
+  const attrMap: Record<string, HTMLElement> = {
+    'VIG': sheetVIG,
+    'DES': sheetDES,
+    'INT': sheetINT,
+    'SOC': sheetSOC,
+    'INS': sheetINS
+  };
+
+  const attrIconMap: Record<string, HTMLElement> = {
+    'VIG': sheetVIGIcon,
+    'DES': sheetDESIcon,
+    'INT': sheetINTIcon,
+    'SOC': sheetSOCIcon,
+    'INS': sheetINSIcon
+  };
+
+  charNameInput.addEventListener('input', () => {
+    sheetName.textContent = charNameInput.value || 'Character Name';
+  });
+
+  imageUrlInput.addEventListener('input', () => {
+    const url = imageUrlInput.value.trim();
+    if (url) {
+      sheetImage.src = url;
+      sheetImage.style.display = 'block';
+      imagePlaceholder.style.display = 'none';
+    } else {
+      sheetImage.style.display = 'none';
+      imagePlaceholder.style.display = 'block';
+    }
+  });
+
+  // Handle dice button clicks
+  document.querySelectorAll('.dice-buttons').forEach(buttonGroup => {
+    const attr = buttonGroup.getAttribute('data-attr');
+    if (!attr) return;
+
+    buttonGroup.querySelectorAll('.dice-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from siblings
+        buttonGroup.querySelectorAll('.dice-btn').forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        // Update the sheet
+        const value = btn.getAttribute('data-value');
+        if (value && attrMap[attr]) {
+          attrMap[attr].textContent = `d${value}`;
+
+          // Update the dice icon
+          if (attrIconMap[attr]) {
+            attrIconMap[attr].className = `dice-icon d${value}`;
+          }
+        }
+      });
+    });
+  });
+
+  // Function to update traits on the card
+  function updateTraitsDisplay() {
+    sheetTraits.textContent = traitsInput.value.trim();
+  }
+
+  traitsInput.addEventListener('input', updateTraitsDisplay);
+</script>
